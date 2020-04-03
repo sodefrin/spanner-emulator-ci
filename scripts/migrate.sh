@@ -1,9 +1,7 @@
 !/bin/sh
 
-gcloud config set project $SPANNER_PROJECT_ID
-
 gcloud components update beta
-gcloud beta emulators spanner start
+gcloud beta emulators spanner start &
 
 gcloud config configurations create emulator
 gcloud config set auth/disable_credentials true
