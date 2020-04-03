@@ -1,6 +1,5 @@
 #!/bin/sh
 
-gcloud config set project sodefrin-sandbox
 gcloud components install cloud-spanner-emulator
 gcloud beta emulators spanner start &
 
