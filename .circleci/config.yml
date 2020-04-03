@@ -6,7 +6,7 @@ commands:
       - run:
           name: "install go"
           command: |
-             scipts/go.sh
+             scripts/go.sh
              
   migrate:
     steps:
