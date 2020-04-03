@@ -14,13 +14,20 @@ commands:
           name: "migrate db"
           command: |
              scripts/migrate.sh
+             
+  test:
+    steps:
+      - run:
+          name: "make test"
+          command: |
+              make test
 
 executors:
   golang-spanner:
     docker:
       - image: google/cloud-sdk:287.0.0-debian_component_based
         environment:
-          SPANNER_EMULATOR_HOST: localhost:9010\
+          SPANNER_EMULATOR_HOST: localhost:9010
           SPANNER_PROJECT_ID: spanner-test-project
           SPANNER_INSTANCE_ID: spanner-test-instance
           SPANNER_DATABASE_ID: spanner-test-database
