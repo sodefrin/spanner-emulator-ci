@@ -32,7 +32,6 @@ executors:
           SPANNER_INSTANCE_ID: spanner-test-instance
           SPANNER_DATABASE_ID: spanner-test-database
           DDL: db/schema.sql
-          PATH: $PATH:/usr/local/go/bin
 
 jobs:
   test:
