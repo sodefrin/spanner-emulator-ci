@@ -1,0 +1,42 @@
+version: 2.1
+
+commands:
+  go:
+    steps:
+      - run:
+        name: "install go"
+          command: |
+             scipts/go.sh
+             
+  migrate:
+    steps:
+      - run:
+          name: "migrate db"
+          command: |
+             scripts/migrate.sh
+
+executors:
+  golang-spanner:
+    docker:
+      - image: google/cloud-sdk:287.0.0
+        environment:
+          SPANNER_EMULATOR_HOST: localhost:9010\
+          SPANNER_PROJECT_ID: test_project
+          SPANNER_INSTANCE_ID: test_instance
+          SPANNER_DATABASE_ID: test_database
+          DDL: db/schema.sql
+
+jobs:
+  test:
+    executor: golang-spanner
+    working_directory: /go/src/github.com/sodefrin/spanner-emulator-ci
+    steps:
+      - checkout
+      - go
+      - migrate
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
