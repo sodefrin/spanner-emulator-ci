@@ -41,6 +41,7 @@ jobs:
       - checkout
       - go
       - migrate
+      - test
 
 workflows:
   version: 2
