@@ -1,5 +1,7 @@
 !/bin/sh
 
+gcloud config set project $SPANNER_PROJECT_ID
+
 gcloud components update beta
 gcloud beta emulators spanner start
 
