@@ -8,19 +8,13 @@ commands:
           command: |
              scripts/go.sh
              
-  migrate:
-    steps:
-      - run:
-          name: "migrate db"
-          command: |
-             scripts/migrate.sh
-             
   test:
     steps:
       - run:
-          name: "make test"
+          name: "test"
           command: |
-              make test
+            scripts/migrate.sh
+            make test
 
 executors:
   golang-spanner:
@@ -40,7 +34,6 @@ jobs:
     steps:
       - checkout
       - go
-      - migrate
       - test
 
 workflows:
