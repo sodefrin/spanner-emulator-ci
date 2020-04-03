@@ -21,9 +21,9 @@ executors:
       - image: google/cloud-sdk:287.0.0-debian_component_based
         environment:
           SPANNER_EMULATOR_HOST: localhost:9010\
-          SPANNER_PROJECT_ID: test_project
-          SPANNER_INSTANCE_ID: test_instance
-          SPANNER_DATABASE_ID: test_database
+          SPANNER_PROJECT_ID: spanner_test_project
+          SPANNER_INSTANCE_ID: spanner_test_instance
+          SPANNER_DATABASE_ID: spanner_test_database
           DDL: db/schema.sql
 
 jobs:
