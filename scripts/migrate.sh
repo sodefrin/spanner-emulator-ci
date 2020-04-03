@@ -1,6 +1,6 @@
 #!/bin/sh
 
-gcloud components install beta
+gcloud components install cloud-spanner-emulator
 gcloud beta emulators spanner start &
 
 gcloud config configurations create emulator
