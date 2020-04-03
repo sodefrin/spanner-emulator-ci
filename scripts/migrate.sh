@@ -1,5 +1,6 @@
 !/bin/sh
 
+sudo apt-get install google-cloud-sdk
 gcloud components install beta
 gcloud beta emulators spanner start &
 

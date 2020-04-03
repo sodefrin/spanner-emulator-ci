@@ -18,7 +18,7 @@ commands:
 executors:
   golang-spanner:
     docker:
-      - image: google/cloud-sdk:287.0.0
+      - image: golang:1.14-stretch
         environment:
           SPANNER_EMULATOR_HOST: localhost:9010\
           SPANNER_PROJECT_ID: test_project
