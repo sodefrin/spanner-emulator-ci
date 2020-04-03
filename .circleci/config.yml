@@ -20,6 +20,7 @@ commands:
       - run:
           name: "make test"
           command: |
+              echo $PATH
               make test
 
 executors:
