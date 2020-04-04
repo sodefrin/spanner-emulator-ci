@@ -1,13 +1,6 @@
 version: 2.1
 
 commands:
-  go:
-    steps:
-      - run:
-          name: "install go"
-          command: |
-             scripts/go.sh
-             
   test:
     steps:
       - run:
@@ -19,7 +12,7 @@ commands:
 executors:
   golang-spanner:
     docker:
-      - image: google/cloud-sdk:287.0.0-debian_component_based
+      - image: sodefrin/spanner-emulator-ci:287.0.0
         environment:
           SPANNER_EMULATOR_HOST: localhost:9010
           SPANNER_PROJECT_ID: spanner-test-project
@@ -33,7 +26,6 @@ jobs:
     working_directory: /go/src/github.com/sodefrin/spanner-emulator-ci
     steps:
       - checkout
-      - go
       - test
 
 workflows:
